@@ -46,7 +46,26 @@ class IntSet
         @store[bucket_idx] << num
     end
 
-    # def [](num)
-    #     self[num]
-    # end
+    def [](num)
+        bucket_idx = num % 20
+        return @store[bucket_idx]
+    end
+end
+
+class ResizingIntSet
+
+    def initialize(n)
+        @store = Array.new(n*n){Array.new} 
+        @length = n * n       
+        @store_count = 0
+    end
+    
+    
+    def insert(num)
+        if @store_count < @length
+            bucket_idx = num % @store.length
+            @store[bucket_idx] << num
+        else
+            
+    end 
 end
