@@ -35,12 +35,18 @@ end
 
 class IntSet
 
+    attr_reader :store
+
     def initialize
-        length = Array.new(20) {Array.new}
+        @store = Array.new(20) {Array.new}
     end
 
     def insert(num)
         bucket_idx = num % 20
-        length[bucket_idx] << num
+        @store[bucket_idx] << num
     end
+
+    # def [](num)
+    #     self[num]
+    # end
 end
