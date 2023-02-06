@@ -37,9 +37,10 @@ class HashSet
   def remove(key)
     num = key.hash
     if self[num].include?(key)
-      bucket_idx = num % @store.length
-      removing_idx = self[num].index(key)
-      @store[bucket_idx] = self[num][0...removing_idx] + self[num][removing_idx + 1..-1]
+      self[num].delete(key)
+      # bucket_idx = num % @store.length
+      # removing_idx = self[num].index(key)
+      # @store[bucket_idx] = self[num][0...removing_idx] + self[num][removing_idx + 1..-1]
       @count -= 1
     end
 
